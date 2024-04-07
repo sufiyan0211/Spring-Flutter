@@ -24,11 +24,42 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatelessWidget {
   const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("This is Home title"),
+    return const Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          HomeAppBar(),
+        ],
+      ),
+    );
+  }
+}
+
+class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+            Container(
+              margin: const EdgeInsets.only(right: 18),
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                color: Colors.lightGreen,
+                borderRadius: BorderRadius.circular(8),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
