@@ -23,6 +23,7 @@ class MyApp1 extends StatelessWidget {
          ),
         floatingActionButton: FloatingActionButton(
           onPressed: (){},
+          child: const Icon(Icons.add)
         ),
       )
     );
