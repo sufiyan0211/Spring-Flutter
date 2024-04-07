@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
       home: const Home(),
     );
@@ -48,14 +48,14 @@ class HomeAppBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back_ios), color: Colors.deepPurple, iconSize: 30),
             Container(
-              margin: const EdgeInsets.only(right: 18),
-              height: 30,
-              width: 30,
+              margin: const EdgeInsets.only(right: 15),
+              height: 40,
+              width: 40,
               decoration: BoxDecoration(
-                color: Colors.lightGreen,
-                borderRadius: BorderRadius.circular(8),
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(20),
               ),
             )
           ],
