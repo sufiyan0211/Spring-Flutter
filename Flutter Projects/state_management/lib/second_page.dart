@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_management/my_provider_class.dart';
+import 'package:state_management/second_provider_class.dart';
 import 'package:provider/provider.dart';
 
 
@@ -32,14 +33,14 @@ class _SecondPageState extends State<SecondPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Consumer<MyProviderClass>(
-              builder: (context, provider, child) {
-                return Text(provider.text, style: const TextStyle(fontSize: 20));
+            Consumer<SecondProviderClass>(
+              builder: (context, secondProvider, child) {
+                return Text(secondProvider.text2, style: const TextStyle(fontSize: 20));
               },
             ),
             ElevatedButton(
               onPressed: () {
-                Provider.of<MyProviderClass>(context, listen: false).changeText(
+                Provider.of<SecondProviderClass>(context, listen: false).changeText2(
                     "2nd screen");
               },
               child: const Text('Change Text'),

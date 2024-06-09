@@ -2,15 +2,29 @@ import 'package:flutter/material.dart';
 
 import 'home_page.dart';
 import 'my_provider_class.dart';
+import 'second_provider_class.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 
 void main() {
   // runApp(const MyApp());
-  runApp(ChangeNotifierProvider<MyProviderClass>(
-    create: (context) => MyProviderClass(),
-    child: MyApp(),
+
+  // runApp(ChangeNotifierProvider<MyProviderClass>(
+  //   create: (context) => MyProviderClass(),
+  //   child: MyApp(),
+  // ));
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<MyProviderClass>(
+        create: (context) => MyProviderClass(),
+      ),
+      ChangeNotifierProvider<SecondProviderClass>(
+        create: (context) => SecondProviderClass(),
+      ),
+    ],
+    child: const MyApp(),
   ));
 }
 
