@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/extension.dart';
 import 'package:state_management/second_page.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Provider.of<MyProviderClass>(context, listen: false).changeText(
+                context.myProvider.changeText(
                     "1st screen");
               },
               child: const Text('Change Text'),

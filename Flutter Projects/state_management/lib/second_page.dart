@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/extension.dart';
 import 'package:state_management/my_provider_class.dart';
 import 'package:state_management/second_provider_class.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,7 @@ class _SecondPageState extends State<SecondPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Provider.of<SecondProviderClass>(context, listen: false).changeText2(
+                context.secondProvider.changeText2(
                     "2nd screen");
               },
               child: const Text('Change Text'),
