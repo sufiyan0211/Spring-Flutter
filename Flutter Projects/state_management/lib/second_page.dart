@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/my_provider_class.dart';
+import 'package:provider/provider.dart';
 
 
 class SecondPage extends StatefulWidget {
@@ -30,12 +32,15 @@ class _SecondPageState extends State<SecondPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(text, style: const TextStyle(fontSize: 20)),
+            Consumer<MyProviderClass>(
+              builder: (context, provider, child) {
+                return Text(provider.text, style: const TextStyle(fontSize: 20));
+              },
+            ),
             ElevatedButton(
               onPressed: () {
-                setState(() {
-                  text = "Text Changed from second screen";
-                });
+                Provider.of<MyProviderClass>(context, listen: false).changeText(
+                    "2nd screen");
               },
               child: const Text('Change Text'),
             ),

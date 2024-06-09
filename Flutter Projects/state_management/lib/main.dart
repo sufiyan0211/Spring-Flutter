@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
+import 'my_provider_class.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  runApp(ChangeNotifierProvider<MyProviderClass>(
+    create: (context) => MyProviderClass(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:state_management/second_page.dart';
+import 'package:provider/provider.dart';
 
+import 'my_provider_class.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -23,12 +25,15 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(someText, style: TextStyle(fontSize: 20)),
+            Consumer<MyProviderClass>(
+              builder: (context, provider, child) {
+                return Text(provider.text, style: TextStyle(fontSize: 20));
+              },
+            ),
             ElevatedButton(
               onPressed: () {
-                setState(() {
-                  someText = "Text Changed from home screen";
-                });
+                Provider.of<MyProviderClass>(context, listen: false).changeText(
+                    "1st screen");
               },
               child: const Text('Change Text'),
             ),
@@ -45,7 +50,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> navigateToSecondPage() async {
-    final route = MaterialPageRoute(builder: (context) => SecondPage(text: someText));
+    final route = MaterialPageRoute(
+        builder: (context) => SecondPage(text: someText));
     await Navigator.push(context, route);
   }
 
